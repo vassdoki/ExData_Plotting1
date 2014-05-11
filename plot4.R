@@ -11,6 +11,27 @@ data = read.csv(
   quote="", colClasses=c("character", "character", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric"))
 
 times <- strptime(paste(data[,1],data[,2]), "%d/%m/%Y %H:%M")
+
+par(mfrow = c(2,2))
+
+plot(
+  times,
+  data$Global_active_power, 
+  type="l", 
+  xlab="", 
+  ylab="Global Active Power"
+)
+
+plot(
+  times,
+  data$Voltage, 
+  type="l", 
+  xlab="datetime", 
+  ylab="Voltage"
+)
+
+
+
 plot(
   times,
   data$Sub_metering_1, 
@@ -26,5 +47,14 @@ legend("topright",
        col = c("black", "red","blue"), 
        legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3")
 )
-dev.copy(png, file = "plot3.png")
+
+plot(
+  times,
+  data$Global_reactive_power, 
+  type="l", 
+  xlab="datetime", 
+  ylab="Global_reactive_power"
+)
+
+dev.copy(png, file = "plot4.png")
 dev.off() 
