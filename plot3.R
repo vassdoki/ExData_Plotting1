@@ -11,6 +11,10 @@ data = read.csv(
   quote="", colClasses=c("character", "character", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric"))
 
 times <- strptime(paste(data[,1],data[,2]), "%d/%m/%Y %H:%M")
+
+par(mfrow = c(1,1))
+par(cex = 0.75)
+
 plot(
   times,
   data$Sub_metering_1, 

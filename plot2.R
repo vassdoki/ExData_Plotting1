@@ -10,6 +10,9 @@ data = read.csv(
   sep=";",
   quote="", colClasses=c("character", "character", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric"))
 
+par(mfrow = c(1,1))
+par(cex = 0.75)
+
 plot(
   strptime(paste(data[,1],data[,2]), "%d/%m/%Y %H:%M"),
   data$Global_active_power, 
