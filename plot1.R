@@ -1,0 +1,13 @@
+if (! file.exists("data.txt")) {
+  message("Please download, unzip and filter the data file from here:")
+  message("https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip")
+  message("data.txt should contain the header, and rows from 2007-02-01 and 2007-02-02")
+}
+
+data = read.csv(
+    "data.txt", 
+    header=TRUE, 
+    sep=";",
+    quote="", colClasses=c("character", "character", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric"))
+
+hist(data$Global_active_power, col="red", main="Global Active Power", xlab="Global Active Power (kilowatts)", ylab="Frequency", breaks=15)
