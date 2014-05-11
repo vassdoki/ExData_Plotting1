@@ -10,4 +10,16 @@ data = read.csv(
     sep=";",
     quote="", colClasses=c("character", "character", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric"))
 
-hist(data$Global_active_power, col="red", main="Global Active Power", xlab="Global Active Power (kilowatts)", ylab="Frequency", breaks=15)
+par(mfrow = c(1,1))
+par(cex = 0.75)
+hist(
+  data$Global_active_power, 
+  col="red", 
+  main="Global Active Power", 
+  xlab="Global Active Power (kilowatts)", 
+  ylab="Frequency", 
+  breaks=15
+)
+
+dev.copy(png, file = "plot1.png")
+dev.off() 
